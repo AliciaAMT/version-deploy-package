@@ -27,18 +27,18 @@ npx @accessiblewebmedia/ionic-angular-init
 ### Basic Usage
 ```bash
 # Interactive mode
-npx @oneassembly/ionic-angular-init
+npx @accessiblewebmedia/ionic-angular-init
 
 # Non-interactive with defaults
-npx @oneassembly/ionic-angular-init --yes
+npx @accessiblewebmedia/ionic-angular-init --yes
 
 # Preview changes without applying
-npx @oneassembly/ionic-angular-init --dry-run
+npx @accessiblewebmedia/ionic-angular-init --dry-run
 ```
 
 ### Advanced Usage
 ```bash
-npx @oneassembly/ionic-angular-init \
+npx @accessiblewebmedia/ionic-angular-init \
   --yes \
   --author "Your Name" \
   --title "My Awesome App" \

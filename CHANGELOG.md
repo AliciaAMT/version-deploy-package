@@ -23,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Test fixtures and basic testing setup
 
 ### Features
-- CLI command: `oneassembly-init`
+- CLI command: `accessiblewebmedia-init`
 - Support for multiple environment configurations
 - Idempotent operations (safe to run multiple times)
 - Firebase hosting setup with staging/production targets
@@ -35,7 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2025-01-XX
 
 ### Added
-- Initial release of @oneassembly/ionic-angular-init CLI
+- Initial release of @accessiblewebmedia/ionic-angular-init CLI
 - Complete feature set as described in requirements
 - Production-ready code structure and error handling
 - Comprehensive documentation and examples
