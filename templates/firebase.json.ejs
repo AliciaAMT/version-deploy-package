@@ -1,0 +1,16 @@
+{
+  "hosting": [
+    {
+      "site": "<%= hostingSites.prod || 'REPLACE_WITH_PROD_SITE' %>",
+      "target": "prod",
+      "public": "www",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    },
+    {
+      "site": "<%= hostingSites.staging || 'REPLACE_WITH_STAGING_SITE' %>",
+      "target": "staging",
+      "public": "www",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    }
+  ]
+}

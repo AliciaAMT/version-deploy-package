@@ -1,0 +1,32 @@
+name: Deploy to Firebase Hosting
+on:
+  push:
+    branches: [ "<%= branchProd %>", "<%= branchStaging %>" ]
+  workflow_dispatch:
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - run: npm ci
+      
+      - name: Build for production
+        run: npm run build
+        if: github.ref_name == '<%= branchProd %>'
+        
+      - name: Build for staging (production build)
+        run: npm run build:prod:staging
+        if: github.ref_name == '<%= branchStaging %>'
+        
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+          channelId: live
+          target: ${{ github.ref_name == '<%= branchProd %>' && 'prod' || 'staging' }}

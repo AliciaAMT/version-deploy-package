@@ -1,0 +1,16 @@
+export const environment = {
+  // optimized build but pointing at staging backends
+  production: true,
+  mode: 'staging-prod',
+  appName: '<%= title %> (Staging)',
+  siteUrl: '<%= website %>',
+  firebase: {
+    apiKey: '',
+    authDomain: '',
+    projectId: '',
+    storageBucket: '',
+    messagingSenderId: '',
+    appId: '',
+    measurementId: ''
+  }
+} as const;
