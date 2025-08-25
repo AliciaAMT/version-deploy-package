@@ -57,5 +57,8 @@
   "files": [
     "dist",
     "templates"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
