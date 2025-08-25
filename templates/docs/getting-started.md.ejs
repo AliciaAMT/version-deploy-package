@@ -1,6 +1,6 @@
 # Getting Started with <%= title %>
 
-This project was initialized using **@oneassembly/ionic-angular-init** and is configured with Ionic, Angular, and Firebase.
+This project was initialized using **@accessiblewebmedia/ionic-angular-init** and is configured with Ionic, Angular, and Firebase.
 
 ## Prerequisites
 - Node.js 18+
@@ -37,3 +37,9 @@ Firebase is not configured. Run the initializer with `--firebase` flag to set it
 - `npm run build:prod:staging` - Production-optimized staging build
 - `npm test` - Run tests
 - `npm run lint` - Lint code
+
+## Version Bump & Deploy Scripts
+- `npm run vd` - Patch bump, build, deploy to production
+- `npm run fvd` - Feature bump, build, deploy to production
+- `npm run mvd` - Major bump, build, deploy to production
+- `npm run td` - Build and deploy to staging (no version bump)

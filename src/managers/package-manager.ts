@@ -77,7 +77,12 @@ export class PackageManager {
       'test': 'ng test',
       'lint': 'ng lint',
       'deploy:firebase:prod': 'firebase deploy --only hosting:prod',
-      'deploy:firebase:staging': 'firebase deploy --only hosting:staging'
+      'deploy:firebase:staging': 'firebase deploy --only hosting:staging',
+      // Version bump and deploy scripts
+      'vd': 'npm version patch && npm run build && npm run deploy:firebase:prod',
+      'fvd': 'npm version minor && npm run build && npm run deploy:firebase:prod',
+      'mvd': 'npm version major && npm run build && npm run deploy:firebase:prod',
+      'td': 'npm run build:staging && npm run deploy:firebase:staging'
     };
 
     for (const [scriptName, scriptCommand] of Object.entries(requiredScripts)) {

@@ -8,7 +8,7 @@ import { CliOptions } from './types.js';
 const program = new Command();
 
 program
-  .name('oneassembly-init')
+  .name('accessiblewebmedia-init')
   .description('Initialize Ionic Angular projects with Firebase configuration')
   .version('1.0.0')
   .option('-y, --yes', 'Skip prompts and use defaults')

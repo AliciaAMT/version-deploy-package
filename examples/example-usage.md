@@ -1,13 +1,13 @@
 # Example Usage
 
-This document shows various ways to use the `@oneassembly/ionic-angular-init` CLI.
+This document shows various ways to use the `@accessiblewebmedia/ionic-angular-init` CLI.
 
 ## Basic Examples
 
 ### 1. Interactive Mode
 ```bash
 # Run in an Ionic Angular project directory
-npx @oneassembly/ionic-angular-init
+npx @accessiblewebmedia/ionic-angular-init
 ```
 
 This will prompt you for:
@@ -19,14 +19,14 @@ This will prompt you for:
 
 ### 2. Non-Interactive Mode
 ```bash
-npx @oneassembly/ionic-angular-init --yes
+npx @accessiblewebmedia/ionic-angular-init --yes
 ```
 
 Uses default values for all prompts.
 
 ### 3. Preview Changes
 ```bash
-npx @oneassembly/ionic-angular-init --dry-run
+npx @accessiblewebmedia/ionic-angular-init --dry-run
 ```
 
 Shows what would be changed without modifying files.
@@ -35,7 +35,7 @@ Shows what would be changed without modifying files.
 
 ### 4. Full Configuration with Firebase
 ```bash
-npx @oneassembly/ionic-angular-init \
+npx @accessiblewebmedia/ionic-angular-init \
   --yes \
   --author "Alicia Anne Taylor" \
   --title "Kahal" \
@@ -49,7 +49,7 @@ npx @oneassembly/ionic-angular-init \
 
 ### 5. Minimal Configuration
 ```bash
-npx @oneassembly/ionic-angular-init \
+npx @accessiblewebmedia/ionic-angular-init \
   --yes \
   --title "My App" \
   --author "John Doe"
@@ -57,7 +57,7 @@ npx @oneassembly/ionic-angular-init \
 
 ### 6. Firebase Only (No CI/CD)
 ```bash
-npx @oneassembly/ionic-angular-init \
+npx @accessiblewebmedia/ionic-angular-init \
   --yes \
   --firebase \
   --ci=none
@@ -65,7 +65,7 @@ npx @oneassembly/ionic-angular-init \
 
 ### 7. Custom Branch Names
 ```bash
-npx @oneassembly/ionic-angular-init \
+npx @accessiblewebmedia/ionic-angular-init \
   --yes \
   --firebase \
   --branch-prod=master \
@@ -83,7 +83,7 @@ ionic start my-app tabs --type=angular
 cd my-app
 
 # 3. Initialize with Firebase
-npx @oneassembly/ionic-angular-init --yes --firebase
+npx @accessiblewebmedia/ionic-angular-init --yes --firebase
 
 # 4. Update environment files with your Firebase keys
 # 5. Deploy to staging
@@ -96,10 +96,10 @@ npm run deploy:firebase:staging
 cd existing-ionic-app
 
 # 2. Preview changes
-npx @oneassembly/ionic-angular-init --dry-run
+npx @accessiblewebmedia/ionic-angular-init --dry-run
 
 # 3. Apply changes
-npx @oneassembly/ionic-angular-init --yes --firebase
+npx @accessiblewebmedia/ionic-angular-init --yes --firebase
 
 # 4. Review generated files and update as needed
 ```
@@ -111,7 +111,7 @@ git clone https://github.com/team/ionic-app.git
 cd ionic-app
 
 # 2. Initialize with team configuration
-npx @oneassembly/ionic-angular-init \
+npx @accessiblewebmedia/ionic-angular-init \
   --yes \
   --title "Team App" \
   --author "Team Name" \
@@ -134,7 +134,7 @@ git push origin main
    - Ensure `angular.json` exists
 
 2. **"Template not found"**
-   - Reinstall the package: `npm install -g @oneassembly/ionic-angular-init`
+   - Reinstall the package: `npm install -g @accessiblewebmedia/ionic-angular-init`
 
 3. **Firebase deployment fails**
    - Check that Firebase CLI is installed: `npm install -g firebase-tools`
@@ -145,3 +145,57 @@ git push origin main
 - Run with `--dry-run` to see what would happen
 - Check the generated `docs/` folder for detailed instructions
 - Review the generated README for project-specific guidance
+
+## Version Bump & Deploy Workflow
+
+After initializing your project, you can use these convenient scripts for version management and deployment:
+
+### Production Deployments (with version bump)
+```bash
+# Patch version bump (1.0.0 → 1.0.1), build, deploy to production
+npm run vd
+
+# Feature version bump (1.0.0 → 1.1.0), build, deploy to production  
+npm run fvd
+
+# Major version bump (1.0.0 → 2.0.0), build, deploy to production
+npm run mvd
+```
+
+### Staging Deployment (no version bump)
+```bash
+# Build and deploy to staging environment
+npm run td
+```
+
+### Workflow Examples
+
+**Daily development cycle:**
+```bash
+# Make changes, test locally
+npm start
+
+# Deploy to staging for testing
+npm run td
+
+# After testing, deploy to production with patch bump
+npm run vd
+```
+
+**Feature release cycle:**
+```bash
+# Complete feature, test on staging
+npm run td
+
+# Deploy feature to production with minor version bump
+npm run fvd
+```
+
+**Major release cycle:**
+```bash
+# Complete major changes, test on staging
+npm run td
+
+# Deploy major release to production
+npm run mvd
+```

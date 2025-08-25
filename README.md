@@ -1,4 +1,4 @@
-# @oneassembly/ionic-angular-init
+# @accessiblewebmedia/ionic-angular-init
 
 A CLI tool to initialize Ionic Angular projects with Firebase configuration, environment management, and CI/CD setup.
 
@@ -16,10 +16,10 @@ A CLI tool to initialize Ionic Angular projects with Firebase configuration, env
 
 ```bash
 # Global installation
-npm install -g @oneassembly/ionic-angular-init
+npm install -g @accessiblewebmedia/ionic-angular-init
 
 # Or use npx (recommended)
-npx @oneassembly/ionic-angular-init
+npx @accessiblewebmedia/ionic-angular-init
 ```
 
 ## Usage
@@ -81,6 +81,11 @@ Creates/updates environment files in `src/environments/`:
 - Sets author, homepage, and project name
 - Ensures Node.js 18+ requirement
 - Installs Firebase dependencies if requested
+- **Version bump and deploy scripts**:
+  - `vd` - Patch bump, build, deploy to production
+  - `fvd` - Feature bump, build, deploy to production
+  - `mvd` - Major bump, build, deploy to production
+  - `td` - Build and deploy to staging (no version bump)
 
 ### 3. Angular Configuration
 Updates `angular.json` with:
@@ -112,12 +117,12 @@ The CLI validates that you're in a valid Ionic Angular workspace:
 ### Quick Start
 ```bash
 cd my-ionic-app
-npx @oneassembly/ionic-angular-init --yes --firebase
+npx @accessiblewebmedia/ionic-angular-init --yes --firebase
 ```
 
 ### Custom Configuration
 ```bash
-npx @oneassembly/ionic-angular-init \
+npx @accessiblewebmedia/ionic-angular-init \
   --title "Kahal" \
   --author "Alicia Anne Taylor" \
   --website "https://theoneassembly.org" \
@@ -127,7 +132,7 @@ npx @oneassembly/ionic-angular-init \
 
 ### Preview Changes
 ```bash
-npx @oneassembly/ionic-angular-init --dry-run --firebase
+npx @accessiblewebmedia/ionic-angular-init --dry-run --firebase
 ```
 
 ## Development
