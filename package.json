@@ -1,6 +1,6 @@
 {
   "name": "@accessiblewebmedia/ionic-angular-init",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI tool to initialize Ionic Angular projects with Firebase configuration",
   "main": "dist/cli.js",
   "bin": {
