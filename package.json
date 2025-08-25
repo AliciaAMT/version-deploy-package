@@ -15,7 +15,8 @@
     "clean": "rimraf dist",
     "prepublishOnly": "npm run clean && npm run build",
     "build:cli": "node scripts/build.js",
-    "test:cli": "node scripts/test-cli.js"
+    "test:cli": "node scripts/test-cli.js",
+    "publish:cli": "node scripts/publish.js"
   },
   "keywords": [
     "ionic",
