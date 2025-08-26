@@ -7,8 +7,8 @@
     "accessiblewebmedia-init": "./dist/cli.js"
   },
   "scripts": {
-    "build": "tsup src/cli.ts --format cjs --outDir dist --minify",
-    "dev": "tsup src/cli.ts --format cjs --outDir dist --watch",
+    "build": "tsup",
+    "dev": "tsup --watch",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint src/**/*.ts",
