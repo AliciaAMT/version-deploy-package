@@ -10,6 +10,7 @@ import { ReadmeManager } from './managers/readme-manager.js';
 import { DocsManager } from './managers/docs-manager.js';
 import { FirebaseManager } from './managers/firebase-manager.js';
 import { PromptManager } from './managers/prompt-manager.js';
+import { AppConfigManager } from './managers/app-config-manager.js';
 
 export class IonicAngularInitializer {
   private config: ProjectConfig;
@@ -54,14 +55,20 @@ export class IonicAngularInitializer {
   private async gatherConfig(): Promise<void> {
     this.spinner.start('Gathering configuration...');
     
+    // Stop the spinner before starting interactive prompts
+    this.spinner.stop();
+    
     const promptManager = new PromptManager(this.options);
     this.config = await promptManager.gatherConfig();
     
+    // Restart the spinner to show completion
+    this.spinner.start('Configuration gathered');
     this.spinner.succeed('Configuration gathered');
   }
 
   private async executeTasks(): Promise<void> {
     const tasks = [
+      { name: 'App configuration', executor: () => this.setupAppConfig() },
       { name: 'Environment files', executor: () => this.setupEnvironments() },
       { name: 'Package.json', executor: () => this.setupPackageJson() },
       { name: 'Angular.json', executor: () => this.setupAngularJson() },
@@ -88,6 +95,12 @@ export class IonicAngularInitializer {
   private shouldSkipTask(taskName: string): boolean {
     if (taskName === 'Firebase setup' && !this.config.firebase) return true;
     return false;
+  }
+
+  private async setupAppConfig(): Promise<void> {
+    const manager = new AppConfigManager(this.config, this.options.dryRun);
+    const taskChanges = await manager.setup();
+    this.changes.push(...taskChanges);
   }
 
   private async setupEnvironments(): Promise<void> {

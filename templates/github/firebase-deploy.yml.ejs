@@ -24,9 +24,11 @@ jobs:
         run: npm run build:prod:staging
         if: github.ref_name == '<%= branchStaging %>'
         
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
           channelId: live
           target: ${{ github.ref_name == '<%= branchProd %>' && 'prod' || 'staging' }}
+          projectPath: '.'

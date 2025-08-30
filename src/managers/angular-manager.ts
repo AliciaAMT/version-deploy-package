@@ -67,9 +67,15 @@ export class AngularManager {
       project.architect.build.configurations = {};
     }
 
+    // Ensure the main build configuration has the correct outputPath for Firebase
+    if (!project.architect.build.outputPath) {
+      project.architect.build.outputPath = 'www';
+    }
+
     // Add staging configuration
     if (!project.architect.build.configurations.staging) {
       project.architect.build.configurations.staging = {
+        outputPath: 'www',
         fileReplacements: [
           {
             replace: 'src/environments/environment.ts',
@@ -82,6 +88,7 @@ export class AngularManager {
     // Add productionStaging configuration
     if (!project.architect.build.configurations.productionStaging) {
       project.architect.build.configurations.productionStaging = {
+        outputPath: 'www',
         fileReplacements: [
           {
             replace: 'src/environments/environment.ts',
